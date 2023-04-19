@@ -1,4 +1,4 @@
-@ -0,0 +1,206 @@
+
 *{
 	margin: 0;
 	padding: 0;
@@ -57,6 +57,10 @@ main h2 a{
 	transition: font-size .3s ease, color .3s ease, opacity .3s ease;
 }
 
+.hide{
+	display: none;
+}
+
 .media{
 	width: 100%;
 	height: auto;
@@ -74,6 +78,10 @@ main h2 a{
 
 .slowhide{
 	opacity: 0%;
+}
+
+.unhide{
+	display: inline-block;
 }
 /*nth child thing here for making everything smaller after the fifth??*/
 

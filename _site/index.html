@@ -309,25 +309,30 @@ function allData(e){
 	let imgArray =["plantstreet/plantstreet1.jpg", "extras/book1.mp4", "dillydally/dilly1.mp4", "extras/lmh1.mov", "manifesto/mani1.png", "here/here1.png", "bluenote/bluenote1.jpg"];
 	let preview = document.querySelector("#preview");
 	let allProjectsAs = document.querySelectorAll("#menu a");
-	showPreview(0);
+
 
 	for(let j=0; j<allProjectsAs.length; j++){
-		allProjectsAs[j].addEventListener("mouseenter", ()=>{
-			showPreview(j);
-		})
-	}
+		createPreview(j);
 
-	function showPreview(i){
+		if(j===0){
+			let firstProj = document.querySelector(".media");
+			firstProj.classList.add("unhide");
+		}
+	}
+	let allProjectsImgs = document.querySelectorAll(".media");
+
+	console.log(allProjectsAs)
+	previewEventListeners(allProjectsImgs);
+
+	function createPreview(i){
+		console.log('hey')
 		// preview.classList.toggle("slowhide");
 		if(imgArray[i].includes(".jpg")||imgArray[i].includes(".png")){
-			preview.innerHTML="";
 			let img=document.createElement("img");
 			img.src=`./assets/images/${imgArray[i]}`;
 			img.classList.add("media")
-			preview.append(img);
-			preview.classList.toggle("slowhide");
+			preview.appendChild(img);
 		}else if(imgArray[i].includes(".mp4")||imgArray[i].includes(".mov")){
-			preview.innerHTML="";
 			let video=document.createElement("video");
 			video.src=`./assets/images/${imgArray[i]}`;
 			video.classList.add("media")
@@ -335,11 +340,26 @@ function allData(e){
 			video.muted=true;
 			video.loop=true;
 			video.controls=false;
-			preview.append(video);
-			preview.classList.toggle("slowhide");
+			preview.appendChild(video);
 		}
-		console.log(imgArray[i])
-		i++
+	}
+
+
+	function previewEventListeners(projects){
+		console.log(projects)
+
+		for(let i=0; i<projects.length; i++){
+			allProjectsAs[i].addEventListener("mouseenter", ()=>{
+				projects[i].classList.add("unhide");
+				projects[i].classList.remove("hide");
+				for(let k=0; k<projects.length; k++){
+					if(k!=i){
+						projects[k].classList.remove("unhide");
+						projects[k].classList.add("hide");
+					}
+				}
+			})
+		}
 	}
 </script>
 <!-- <!-- <script>
