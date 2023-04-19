@@ -24,6 +24,10 @@
 			let video=document.createElement("video");
 			video.src=`./assets/images/${imgArray[i]}`;
 			video.classList.add("media")
+			video.autoplay =true;
+			video.muted=true;
+			video.loop=true;
+			video.controls=false;
 			preview.append(video);
 			preview.classList.toggle("slowhide");
 		}
