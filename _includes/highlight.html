@@ -1,0 +1,33 @@
+<script type="text/javascript">
+	let imgArray =["plantstreet/plantstreet1.jpg", "extras/book1.mp4", "dillydally/dilly1.mp4", "extras/lmh1.mov", "manifesto/mani1.png", "here/here1.png", "bluenote/bluenote1.jpg"];
+	let preview = document.querySelector("#preview");
+	let allProjectsAs = document.querySelectorAll("#menu a");
+	showPreview(0);
+
+	for(let j=0; j<allProjectsAs.length; j++){
+		allProjectsAs[j].addEventListener("mouseenter", ()=>{
+			showPreview(j);
+		})
+	}
+
+	function showPreview(i){
+		// preview.classList.toggle("slowhide");
+		if(imgArray[i].includes(".jpg")||imgArray[i].includes(".png")){
+			preview.innerHTML="";
+			let img=document.createElement("img");
+			img.src=`./assets/images/${imgArray[i]}`;
+			img.classList.add("media")
+			preview.append(img);
+			preview.classList.toggle("slowhide");
+		}else if(imgArray[i].includes(".mp4")||imgArray[i].includes(".mov")){
+			preview.innerHTML="";
+			let video=document.createElement("video");
+			video.src=`./assets/images/${imgArray[i]}`;
+			video.classList.add("media")
+			preview.append(video);
+			preview.classList.toggle("slowhide");
+		}
+		console.log(imgArray[i])
+		i++
+	}
+</script>
