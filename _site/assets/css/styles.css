@@ -6,6 +6,8 @@
 
 h2{
 	letter-spacing: .4vh;
+	padding: 0;
+	margin: 0;
 }
 
 html, body{
@@ -42,19 +44,17 @@ body{
 	align-content: center;
 	display: grid;
 	grid-template-columns: 2fr 1fr;
-	margin: 20vh 10vh 0 10vh;
+	margin: 20vh 10vh 0vh;
 }
 .mainEl h2{
 	line-height: .9;
 	padding: 1vh 2vh;
 }
 
-.mainEl h2 a{
-/*	*/
+main h2 a{
 	color: var(--primary);
 	text-decoration: none;
 	transition: font-size .3s ease, color .3s ease, opacity .3s ease;
-
 }
 
 .media{
@@ -97,7 +97,7 @@ body{
 }*/
 
 #about{
-	margin: 20vh 60vh 10vh 10vh;
+	margin: 20vh 50vh 10vh 10vh;
 	color: var(--primary);
 }
 
@@ -167,25 +167,30 @@ change p:hover{
 
 @media screen and (max-width: 1800px) {
 
-	main{
 
-	}
-	#about{
+/*	#about{
 		margin: 10vh 5vh 10vh 5vh;
-	}
+	}*/
 
 
 }
 
 @media screen and (max-width: 950px) {
-	main{
-		margin: 20vh 5vh 10vh 5vh;
+	.mainEl{
+		margin: 22vh 0vh 0vh 3vh;
+	}
+
+	#preview{
+		display: none;
 	}
 
   main h2 a{
 		font-size: 5vh;
 	}
 
+	#about{
+		margin: 10vh 5vh 10vh 5vh;
+	}
 
 	#about h2 change p{
 		font-size: 5vh;
