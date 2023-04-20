@@ -18,17 +18,18 @@
 	previewEventListeners(allProjectsImgs);
 
 	function createPreview(i){
-		console.log('hey')
 		// preview.classList.toggle("slowhide");
 		if(imgArray[i].includes(".jpg")||imgArray[i].includes(".png")){
 			let img=document.createElement("img");
 			img.src=`./assets/images/${imgArray[i]}`;
 			img.classList.add("media")
+			img.classList.add("hide")
 			preview.appendChild(img);
 		}else if(imgArray[i].includes(".mp4")||imgArray[i].includes(".mov")){
 			let video=document.createElement("video");
 			video.src=`./assets/images/${imgArray[i]}`;
 			video.classList.add("media")
+			video.classList.add("hide")
 			video.autoplay =true;
 			video.muted=true;
 			video.loop=true;
